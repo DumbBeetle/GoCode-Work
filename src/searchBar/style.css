@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #e9f0fd;
+}
+
+section {
+    margin: 50px;
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+section > * {
+    width: 265px;
+    height: 30px;
+    border-radius: 5px;
+}
+
+input {
+    padding-left: 1em;
+}
+
+div {
+    background-color: #613efa;
+    color: white;
+    display: flex;
+    align-items: center;
+    padding-left: 1em;
+}
+
+section > div:last-child {
+    background-color: #fd6146;
+}
