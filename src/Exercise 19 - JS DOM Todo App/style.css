@@ -24,13 +24,50 @@ article {
     justify-content: space-between;
 }
 
+.darkMode {
+    background-color: black;
+    color: white;
+}
+
 article > div:last-child {
     display: flex;
     align-items: center;
+    gap: 20px;
 }
 
-
-.remove-button {
+article > div:last-child > button {
     width: 50px;
     height: 50px;
+    border: none;
+}
+
+.remove-button {
+    background-color: darkred;
+}
+
+.done-button {
+    background-color: green;
+}
+
+article > div button::before {
+    font-size: 40px;
+    vertical-align: middle;
+    line-height: 2px;
+}
+
+.remove-button::before {
+    content: "\1F5D1";
+}
+
+.done-button::before {
+    content: "\2714";
+    color: white;
+}
+
+article.done {
+    background-color: #7cd25b;
+}
+
+article.done > div:first-child {
+    text-decoration: line-through;
 }
