@@ -1,11 +1,4 @@
 // Setting Color Toggle Button
-let colorBool = false;
-const toggle = document.querySelector(".toggle-colors");
-toggle.addEventListener("click", () => {
-  colorBool = !colorBool;
-  toggleColors();
-});
-
 function toggleColors() {
   const mode = "darkMode";
   const assignments = document.querySelectorAll("article");
@@ -16,6 +9,13 @@ function toggleColors() {
     colorBool ? assignment.classList.add(mode) : assignment.classList.remove(mode);
   }
 }
+
+let colorBool = false;
+const toggle = document.querySelector(".toggle-colors");
+toggle.addEventListener("click", () => {
+  colorBool = !colorBool;
+  toggleColors();
+});
 
 // Setting Show Toggle Button
 const showDone = document.querySelector(".toggle-done");
