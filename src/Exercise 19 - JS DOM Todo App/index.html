@@ -14,8 +14,16 @@
       <button class="assignment-add">Add</button>
     </div>
     <div>
-      <button class="toggle-colors">Toggle Dark Mode</button>
-      <button class="toggle-done">Show Done</button>
+      <input type="checkbox" id="toggle-darkMode" />
+      <label class="label-darkMode" for="toggle-darkMode">
+        <img src="icons/sun-svgrepo-com.svg" alt="sun" class="img-sun" />
+        <img src="icons/moon-svgrepo-com.svg" alt="moon" class="img-moon" />
+      </label>
+      <input type="checkbox" id="toggle-done" />
+      <label class="label-done" for="toggle-done">
+        <img src="icons/eye-off-outline-svgrepo-com.svg" alt="eye-off" class="img-eye-off" />
+        <img src="icons/eye-svgrepo-com.svg" alt="eye" class="img-eye" />
+      </label>
     </div>
     <section class="assignments"></section>
     <script src="main.js"></script>

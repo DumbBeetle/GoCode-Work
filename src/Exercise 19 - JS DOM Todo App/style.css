@@ -9,10 +9,145 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
+    transition: ease 0.5s;
 }
 
 body > * {
     margin: 10px;
+}
+
+body:has(#toggle-darkMode:checked) {
+    background-color: #383d46;
+    color: white;
+    transition: ease 0.5s;
+}
+
+#toggle-darkMode {
+    width: 0;
+    height: 0;
+    display: none;
+}
+
+.label-darkMode {
+    width: 120px;
+    height: 40px;
+    position: relative;
+    display: inline-block;
+    background: #dcdcdc;
+    border-radius: 40px;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.4), inset 0 -2px 5px rgba(255, 255, 255, 0.4);
+    cursor: pointer;
+    transition: ease 0.5s;
+}
+
+.label-darkMode::after {
+    content: "";
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    position: absolute;
+    top: 5px;
+    left: 2px;
+    background: linear-gradient(180deg, #e5daa1, #e3a85d);
+    box-shadow: 1px 2px 5px rgba(0, 0, 0, 0.4);
+    transition: ease 0.3s;
+}
+
+#toggle-darkMode:checked + .label-darkMode {
+    background: gray;
+    transition: ease 0.5s;
+}
+
+#toggle-darkMode:checked + .label-darkMode::after {
+    left: 115px;
+    transform: translateX(-100%);
+    background: linear-gradient(180deg, #7f8b94, #383d46);
+    box-shadow: -1px -2px 5px rgba(255, 255, 255, 0.6);
+    transition: ease 0.3s;
+}
+
+#toggle-darkMode:active + .label-darkMode::after {
+    transition: ease 0.5s;
+}
+
+.label-darkMode img {
+    z-index: 2;
+    position: absolute;
+    top: 8px;
+    left: 4px;
+    width: 25px;
+    filter: invert(100%);
+}
+
+.label-darkMode .img-moon {
+    left: 88px;
+    filter: none;
+    opacity: 20%;
+}
+
+#toggle-darkMode:checked + .label-darkMode .img-sun {
+    filter: none;
+    opacity: 20%;
+}
+
+#toggle-darkMode:checked + .label-darkMode .img-moon {
+    filter: invert(100%);
+    opacity: 100%;
+}
+
+#toggle-done {
+    width: 0;
+    height: 0;
+    display: none;
+}
+
+.label-done {
+    margin-left: 40px;
+    width: 120px;
+    height: 40px;
+    position: relative;
+    display: inline-block;
+    background: #dcdcdc;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: ease 0.5s;
+}
+
+.label-done::after {
+    content: "";
+    width: 60px;
+    height: 40px;
+    border-radius: 10px 0 0 10px;
+    position: absolute;
+    box-shadow: inset 6px 0 2px rgba(77, 77, 77, 0.8), -1px 1px 0 rgba(77, 77, 77, 0.5),
+    -3px 3px 5px rgba(77, 77, 77, 0.4), -6px 6px 5px rgba(77, 77, 77, 0.3);
+}
+
+#toggle-done:checked + .label-done::after {
+    left: 120px;
+    transform: translateX(-100%) scaleX(-1);
+}
+
+.label-done img {
+    z-index: 2;
+    position: absolute;
+    top: 8px;
+    left: 10px;
+    width: 25px;
+    transform: scaleX(0.8);
+}
+
+.label-done .img-eye {
+    left: 85px;
+    transform: scaleX(1);
+}
+
+#toggle-done:checked + .label-done .img-eye-off {
+    transform: scaleX(1);
+}
+
+#toggle-done:checked + .label-done .img-eye {
+    transform: scaleX(0.8);
 }
 
 article {
@@ -22,11 +157,12 @@ article {
     margin-bottom: 10px;
     display: flex;
     justify-content: space-between;
+    border: black solid 2px;
 }
 
 .darkMode {
     background-color: black;
-    color: white;
+    border-color: white;
 }
 
 article > div:last-child {

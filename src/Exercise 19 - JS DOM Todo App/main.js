@@ -1,33 +1,22 @@
 // Setting Color Toggle Button
-function toggleColors() {
-  const mode = "darkMode";
+const toggleDarkMode = document.querySelector("#toggle-darkMode");
+toggleDarkMode.addEventListener("change", function toggleDarkMode() {
+  // Get all Assignments
   const assignments = document.querySelectorAll("article");
-  // Toggle DarkMode
-  colorBool ? toggle.classList.add(mode) : toggle.classList.remove(mode);
-  // Assignments DarkMode
+  // Add dark mode class to Assignments
   for (const assignment of assignments) {
-    colorBool ? assignment.classList.add(mode) : assignment.classList.remove(mode);
+    assignment.classList.toggle("darkMode");
   }
-}
-
-let colorBool = false;
-const toggle = document.querySelector(".toggle-colors");
-toggle.addEventListener("click", () => {
-  colorBool = !colorBool;
-  toggleColors();
 });
 
 // Setting Show Toggle Button
-const showDone = document.querySelector(".toggle-done");
-let showBool = true;
-showDone.addEventListener("click", function () {
-  showBool = !showBool;
+const toggleShowDone = document.querySelector("#toggle-done");
+toggleShowDone.addEventListener("click", function () {
   // Change Button Text
-  showBool ? (showDone.textContent = "Show Done") : (showDone.textContent = "Show All");
   const unfinishedAssignments = document.querySelectorAll("article:not(.done)");
   for (const unfinished of unfinishedAssignments) {
     // Assign Display
-    showBool ? (unfinished.style.display = "flex") : (unfinished.style.display = "none");
+    toggleShowDone.checked ? (unfinished.style.display = "none") : (unfinished.style.display = "flex");
   }
 });
 
@@ -49,7 +38,7 @@ function doneButton(assignmentContainer, buttonContainer) {
   buttonContainer.appendChild(doneButton);
   doneButton.addEventListener("click", function () {
     const done = "done";
-    assignmentContainer.classList.contains(done) ? assignmentContainer.classList.remove(done) : assignmentContainer.classList.add(done);
+    assignmentContainer.classList.toggle(done);
     const unfinishedAssignments = document.querySelectorAll("article:not(.done)");
     if (unfinishedAssignments.length) {
       unfinishedAssignments[unfinishedAssignments.length - 1].insertAdjacentElement("afterend", assignmentContainer);
@@ -87,7 +76,7 @@ addButton.addEventListener("click", function () {
   infoContainer.append(assignment, assignmentStatus, assignmentTime);
   // Adding Div to Article
   assignmentContainer.appendChild(infoContainer);
-  if (!showBool) {
+  if (toggleShowDone.checked) {
     assignmentContainer.style.display = "none";
   }
   // Check if there are existing Assignments
@@ -95,8 +84,10 @@ addButton.addEventListener("click", function () {
   // If there are insert as first child, else insert normally
   //  Insert to Section
   hasAssignment ? mainContainer.insertBefore(assignmentContainer, hasAssignment) : mainContainer.appendChild(assignmentContainer);
-  // Checking Toggle
-  toggleColors();
+  // Checking darkMode Toggle
+  if (toggleDarkMode.checked) {
+    assignmentContainer.classList.add("darkMode");
+  }
   // Create Div for Assignment Buttons
   const buttonContainer = document.createElement("div");
   // Remove Button
