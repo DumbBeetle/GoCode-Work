@@ -111,6 +111,8 @@ body:has(#toggle-darkMode:checked) {
     border-radius: 10px;
     cursor: pointer;
     transition: ease 0.5s;
+    box-shadow: inset 1px 1px 2px rgba(77, 77, 77, 0.8), inset 1px -1px 2px rgba(77, 77, 77, 0.8),
+    inset -1px 1px 2px rgba(77, 77, 77, 0.8), inset -1px -1px 2px rgba(77, 77, 77, 0.8);
 }
 
 .label-done::after {
