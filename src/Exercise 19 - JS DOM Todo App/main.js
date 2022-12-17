@@ -1,6 +1,6 @@
 // Setting Color Toggle Button
 const toggleDarkMode = document.querySelector("#toggle-darkMode");
-toggleDarkMode.addEventListener("change", function toggleDarkMode() {
+toggleDarkMode.addEventListener("change", function () {
   // Get all Assignments
   const assignments = document.querySelectorAll("article");
   // Add dark mode class to Assignments
