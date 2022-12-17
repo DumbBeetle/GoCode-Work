@@ -166,6 +166,7 @@ article {
 .darkMode {
     background-color: black;
     border-color: white;
+    color: white;
 }
 
 article > div:last-child {
