@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #257489;
+}
+
+h3 {
+    margin-left: 60px;
+}
+
+p {
+    line-height: 20px;
+}
+
+.basic-info {
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    gap: 6px;
+    border: #383d46 solid 1px;
+}
